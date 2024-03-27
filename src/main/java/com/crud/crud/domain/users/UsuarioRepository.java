@@ -1,6 +1,5 @@
-package com.crud.crud.Repository;
+package com.crud.crud.domain.users;
 
-import com.crud.crud.Model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository

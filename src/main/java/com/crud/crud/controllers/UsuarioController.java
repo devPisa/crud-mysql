@@ -1,7 +1,7 @@
-package com.crud.crud.Controller;
+package com.crud.crud.controllers;
 
-import com.crud.crud.Model.Usuario;
-import com.crud.crud.Repository.UsuarioRepository;
+import com.crud.crud.domain.users.Usuario;
+import com.crud.crud.domain.users.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,16 +11,14 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
-        private UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @GetMapping
     public List<Usuario> listarUsuario(){
-
         return usuarioRepository.findAll();
     }
     @PostMapping
     public Usuario criarUsuario(@RequestBody Usuario usuario){
-
         return usuarioRepository.save(usuario);
     }
     @PutMapping("/{id}")

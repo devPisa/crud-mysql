@@ -86,9 +86,26 @@
     }
 
     // Função para editar um usuário
-    function editarUsuario(id) {
-        // Implemente conforme necessário
-        console.log('Editar usuário com ID:', id);
+    function editarUsuario(event) {
+        event.preventDefault();
+        const id = document.getElementById('usuarioId').value;
+        const nome = document.getElementById('edit_nome').value;
+        const email = document.getElementById('edit_email').value;
+
+        fetch(/usuarios/${id},{
+            method: 'PUT',
+            headers:{
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify({id,nome,email})
+        })
+            .then(() => {
+            document.getElementById('editarForm').style.display = 'none';
+            document.getElementById('usuarioForm').style.display='block';
+            document.getElementById('edit_nome').value = "";
+            document.getElementById('edit_email').value= "";
+                "carregarUsuarios();"
+            });
     }
 
     // Função para deletar um usuário
